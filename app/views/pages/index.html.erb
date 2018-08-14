@@ -1,0 +1,26 @@
+<section class="home">
+  <div class="container">
+    <div class="row">
+      <% if @products.any? %>
+          <% @products.each do |p| %>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="product-box">
+                  <h4><%= number_to_currency(p.price, precision: 2) %></h4>
+                  <div class="image-box">
+                    <%= image_tag p.image.url(:basic), :class => 'img-responsive', :alt => p.name %>
+                  </div>
+                  <h3><%= p.name %></h3>
+                  <div class="quantity">
+                    <label>Qty</label>
+                    <input type="number" value="0" min="0"/>
+                  </div>
+                  <span class="basic-btn" data-product="<%= p.id %>">Add to basket</span>
+                </div>
+              </div>
+          <% end %>
+      <% else %>
+
+      <% end %>
+    </div>
+  </div>
+</section>

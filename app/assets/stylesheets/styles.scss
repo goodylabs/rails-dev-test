@@ -1,0 +1,246 @@
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin-ext');
+
+//colors
+$black: #333333;
+$pink: #ff6767;
+$green: #93bd46;
+
+//fonts
+@mixin sans_l($fz) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: $fz;
+}
+@mixin sans_r($fz) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: $fz;
+}
+@mixin sans_b($fz) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: $fz;
+}
+@mixin sans_eb($fz) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: $fz;
+}
+
+* {
+  outline: none !important;
+  @include sans_l(16px);
+}
+
+.alert {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  margin: 0;
+  z-index: 10;
+  &.alert-alert {
+    background: $pink;
+    font-size: 14px;
+  }
+  .close {
+    position: absolute;
+    top: 0;
+    right: 4px;
+  }
+}
+
+.basic-btn {
+  border-radius: 0;
+  text-shadow: none;
+  width: 200px;
+  background-image: none;
+  background: white;
+  @include sans_r(14px);
+  text-transform: uppercase;
+  color: $black;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none !important;
+  display: block;
+}
+
+header {
+  background: $black;
+  height: 70px;
+  padding: 15px 0;
+  .logo {
+    float: left;
+    img {
+      max-width: 55px;
+    }
+  }
+  .menu {
+    float: right;
+    padding: 10px 0;
+    margin: 0;
+    list-style-type: none;
+    li {
+      float: left;
+      a {
+        padding: 0 10px;
+        display: block;
+        color: white;
+        font-size: 14px;
+      }
+      .basket-icon {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        background: white;
+        display: block;
+        border-radius: 100%;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+        box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+        label {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background: $green;
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          text-align: center;
+          font-size: 14px;
+          padding: 4px 0;
+        }
+        .fa {
+          color: $black;
+          font-size: 34px;
+          padding: 18px 0;
+          text-align: center;
+          display: block;
+        }
+      }
+    }
+  }
+}
+.sign-in, .sign-up {
+  padding: 50px 0 0;
+}
+.form-box {
+  background: $black;
+  padding: 15px;
+  h2 {
+    color: white;
+    text-align: center;
+    @include sans_b(22px);
+    margin-bottom: 35px;
+    border-bottom: solid 1px white;
+    padding: 0 0 10px;
+  }
+  .field {
+    margin-bottom: 15px;
+    label {
+      display: block;
+      color: white;
+      @include sans_l(12px);
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+      display: block;
+      width: 100%;
+      height: 35px;
+      border-radius: 0;
+      padding: 0 10px;
+      @include sans_l(12px);
+    }
+  }
+  .actions {
+    margin: 35px 0;
+    input[type="submit"] {
+      border-radius: 0;
+      text-shadow: none;
+      width: 200px;
+      background-image: none;
+      background: white;
+      @include sans_r(14px);
+      text-transform: uppercase;
+      color: $black;
+      margin: 0 0 0 auto;
+      display: block;
+      &:hover {
+        background: white;
+        background-image: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.home {
+  padding: 50px 0 0;
+  .product-box {
+    padding: 2px;
+    background: $black;
+    margin-bottom: 30px;
+    transition-duration: 300ms;
+    .image-box {
+      margin-bottom: 15px;
+      img {
+        max-width: 100%;
+      }
+    }
+    h3 {
+      color: white;
+      @include sans_l(12px);
+      text-align: center;
+      margin: 0 0 15px;
+    }
+    .quantity {
+      padding: 0 0 0 25px;
+      position: relative;
+      margin-bottom: 10px;
+      input {
+        width: 100%;
+        @include sans_l(12px);
+        height: 25px;
+        border: none;
+        padding-left: 10px;
+        display: block;
+      }
+      label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        color: white;
+        @include sans_l(11px);
+        line-height: 12px;
+        height: 12px
+      }
+    }
+    h4 {
+      @include sans_r(14px);
+      background: $green;
+      padding: 5px;
+      margin: 0 0 2px;
+      text-align: center;
+      color: white;
+
+    }
+    .basic-btn {
+      width: 100%;
+      font-size: 12px;
+      padding: 4px;
+      display: block;
+      cursor: pointer;
+    }
+    &:hover {
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    }
+  }
+}

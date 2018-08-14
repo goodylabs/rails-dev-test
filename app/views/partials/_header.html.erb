@@ -1,0 +1,21 @@
+<header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= link_to root_path, :class => 'logo' do %>
+            <%= image_tag 'logo.png', :class => 'img-responsive', :alt => 'logo' %>
+          <% end %>
+          <ul class="menu">
+            <li>
+              <%= link_to new_user_session_path do %>
+                    <span class="basket-icon">
+                      <label class="counter">0</label>
+                      <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    </span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>

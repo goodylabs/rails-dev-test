@@ -11,5 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require js.cookie.js
 //= require turbolinks
 //= require_tree .
