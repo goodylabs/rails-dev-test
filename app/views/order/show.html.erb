@@ -1,0 +1,66 @@
+<section class="orders">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h3>My orders</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <% if @orders.any? %>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Lp.</th>
+                <th>Order no.</th>
+                <th>Products</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @orders.each_with_index do |o, index| %>
+                  <tr>
+                    <td>
+                      <span><%= index + 1 %></span>
+                    </td>
+                    <td><%= o.id %></td>
+                    <td>
+                      <table class="table">
+                        <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Qty</th>
+                              <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% o.order_products.each do |p| %>
+                                <tr>
+                                  <td><%= p.product.name %></td>
+                                  <td><%= p.quantity %></td>
+                                  <td><%= number_to_currency(p.price, precision: 2) %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td>
+                      <%= number_to_currency(o.order_products.map {|i| i.price }.sum, precision: 2) %>
+                    </td>
+                    <td><%= o.address %></td>
+                    <td><%= o.created_at.strftime('%F %T') %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+        <% else %>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h5>You don't have any orders yet</h5>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

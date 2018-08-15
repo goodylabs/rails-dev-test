@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.all.in_stock
   end
 end

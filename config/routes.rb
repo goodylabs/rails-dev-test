@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   get 'basket', :to => 'order#basket', :as => 'basket'
   get 'basket/checkout', :to => 'order#checkout', :as => 'checkout'
+  post 'basket/order/create', :to => 'order#create', :as => 'create_order'
+
+  get 'orders', :to => 'order#show', :as => 'orders'
 end

@@ -1,4 +1,9 @@
 class OrderController < FrontendController
+
+  def show
+    @orders = current_user.orders
+  end
+
   def basket
     cookies_products = cookies[:products]
     @products = []
@@ -9,6 +14,7 @@ class OrderController < FrontendController
   end
 
   def checkout
+
     #get cookie
     cookies_products = cookies[:products]
     @products = []
@@ -53,5 +59,59 @@ class OrderController < FrontendController
     else
       redirect_to root_path, :alert => 'Add some products to your basket'
     end
+  end
+
+  def create
+    #get products from cookies
+    cookies_products = cookies[:products]
+
+    if cookies_products
+
+      #parse products
+      products = JSON.parse(cookies_products)
+      #total price
+      total_price = products.map {|p| (p['price'].to_f * p['quantity'])}.sum
+
+      #new order
+      order = Order.new(order_params)
+      #set user_id
+      order.user_id = current_user.id
+      #set total_price
+      order.total_price = total_price
+      if order.save
+
+        #prepare params for order_product in loop
+        products.each do |p|
+          product = {
+              order_id: order.id,
+              product_id: p['id'],
+              quantity: p['quantity'],
+              price: p['price']
+          }
+          item = order.order_products.build(product)
+          item.save
+
+          #update product quantity
+          product_to_update = Product.find(p['id'])
+          puts product_to_update
+          product_to_update.decrement!(:quantity, p['quantity'])
+        end
+
+        #clear cookies
+        cookies.delete :products
+
+        redirect_to root_path, :notice => 'Order has been registered.'
+      else
+        redirect_to checkout_path, :alert => order.errors.full_messages.join('</br>')
+      end
+    else
+      redirect_to checkout_path, :alert => 'Ooops! Something went wrong. Please try again'
+    end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:user_id, :email, :address, :card_type, :card_number, :card_expiration_month, :card_expiration_year, :card_cvv, :order_products => [:id, :order_id, :product_id, :quantity, :price]);
   end
 end

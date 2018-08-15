@@ -74,6 +74,12 @@ body {
   &.alert-alert {
     background: $pink;
     font-size: 13px;
+    color: white;
+  }
+  &.alert-notice {
+    background: $green;
+    font-size: 13px;
+    color: white;
   }
   .close {
     position: absolute;
@@ -99,6 +105,7 @@ body {
   text-align: center;
   text-decoration: none !important;
   display: block;
+  transition-duration: 300ms;
 }
 
 #ui-datepicker-div {
@@ -161,6 +168,7 @@ header {
         display: block;
         color: white;
         font-size: 14px;
+        text-decoration: none;
       }
       .basket-icon {
         position: relative;
@@ -452,6 +460,18 @@ footer {
   .payment-informations {
     .input-group {
       width: 100%;
+      select {
+        width: 100%;
+        display: block;
+        margin-bottom: 15px;
+        height: 30px;
+        @include sans_l(13px);
+        border: 1px solid #c9d0d6;
+        padding: 0 7px;
+        option {
+          @include sans_l(13px);
+        }
+      }
       input {
         display: block;
         width: 100%;
@@ -459,6 +479,85 @@ footer {
         @include sans_l(13px);
         margin-bottom: 15px;
         border-radius: 0;
+      }
+      .small-input {
+        width: 49%;
+        float: left;
+        &:last-of-type {
+          float: right;
+        }
+      }
+      label {
+        font-size: 12px;
+      }
+      span {
+        font-size: 12px;
+      }
+    }
+    .basic-btn {
+      &:hover {
+        background: $black;
+        color: white;
+      }
+    }
+  }
+}
+
+.orders {
+  .table {
+    thead {
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      tr {
+        th {
+          @include sans_r(13px);
+          background: $green;
+          padding: 2px;
+        }
+      }
+    }
+    tbody {
+      td {
+        @include sans_l(13px);
+        span {
+          background: $dgreen;
+          width: 30px;
+          display: block;
+          height: 30px;
+          border-radius: 100%;
+          color: white;
+          text-align: center;
+          @include sans_b(13px);
+          padding: 5px 0;
+          -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+          -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+          box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+        }
+        img {
+          max-width: 50px;
+        }
+        ul {
+          list-style-type: square;
+          padding: 0;
+          margin: 0;
+          li {
+            @include sans_l(13px);
+          }
+        }
+      }
+    }
+    .table {
+      thead {
+        th {
+          font-size: 11px;
+          background: $dgreen;
+        }
+      }
+      tbody {
+        td {
+          font-size: 11px;
+        }
       }
     }
   }
