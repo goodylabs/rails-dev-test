@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   root 'pages#index'
+
+  get 'basket', :to => 'order#basket', :as => 'basket'
+  get 'basket/checkout', :to => 'order#checkout', :as => 'checkout'
 end

@@ -47,6 +47,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.assets.digest = true
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -61,7 +62,7 @@ Rails.application.configure do
       port: 587,
       authentication: "plain",
       enable_starttls_auto: true,
-      user_name: "email@gmail.com",
-      password: "password"
+      user_name: "your_email@gmail.com",
+      password: "your_password"
   }
 end

@@ -5,6 +5,7 @@
 $black: #333333;
 $pink: #ff6767;
 $green: #93bd46;
+$dgreen: #5f8d3d;
 
 //fonts
 @mixin sans_l($fz) {
@@ -37,6 +38,20 @@ $green: #93bd46;
   @include sans_l(16px);
 }
 
+body {
+  padding-bottom: 50px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 .alert {
   position: fixed;
   bottom: 10px;
@@ -44,14 +59,30 @@ $green: #93bd46;
   right: 10px;
   margin: 0;
   z-index: 10;
+  @include sans_l(13px);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  .fa-exclamation-triangle {
+    margin: 0 7px 0 0;
+    width: 20px;
+  }
+  .fa-remove {
+    margin: 0 7px 0 0;
+    width: 20px;
+  }
   &.alert-alert {
     background: $pink;
-    font-size: 14px;
+    font-size: 13px;
   }
   .close {
     position: absolute;
     top: 0;
     right: 4px;
+    background: none !important;
+  }
+  strong {
+    font-size: 13px;
   }
 }
 
@@ -70,6 +101,44 @@ $green: #93bd46;
   display: block;
 }
 
+#ui-datepicker-div {
+  width: 210px;
+  border: none;
+  .ui-datepicker-header {
+    width: 100%;
+    border-radius: 0;
+    margin: 0 2px;
+    background: $dgreen;
+    &::before {
+      display: none !important;
+    }
+    .ui-datepicker-title {
+      margin-top: -10px;
+      a {
+        background: none !important;
+      }
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+  .ui-datepicker-calendar {
+    width: 100%;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+    thead {
+      th {
+        font-size: 13px !important;
+      }
+    }
+    tbody {
+      td {
+        font-size: 12px;
+      }
+    }
+  }
+}
 header {
   background: $black;
   height: 70px;
@@ -126,6 +195,29 @@ header {
     }
   }
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $black;
+  height: 35px;
+  padding: 9px 0;
+  p {
+    margin-bottom: 0;
+    @include sans_l(12px);
+    text-align: right;
+    font-style: italic;
+    color: white;
+    span {
+      text-decoration: underline;
+      @include sans_l(12px);
+      font-style: normal;
+    }
+  }
+}
+
 .sign-in, .sign-up {
   padding: 50px 0 0;
 }
@@ -187,6 +279,7 @@ header {
     transition-duration: 300ms;
     .image-box {
       margin-bottom: 15px;
+      display: block;
       img {
         max-width: 100%;
       }
@@ -200,14 +293,19 @@ header {
     .quantity {
       padding: 0 0 0 25px;
       position: relative;
-      margin-bottom: 10px;
+      margin: 0 -15px 10px 0;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
       input {
-        width: 100%;
         @include sans_l(12px);
         height: 25px;
         border: none;
         padding-left: 10px;
         display: block;
+        margin-right: -8px;
+        width: 60px;
+        margin: 0 0 0 auto;
       }
       label {
         position: absolute;
@@ -241,6 +339,127 @@ header {
       -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
       -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
       box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    }
+  }
+}
+
+.basket {
+  table {
+    border-bottom: solid 1px #dddddd;
+    thead {
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      tr {
+        th {
+          background: $green;
+          @include sans_b(13px);
+          border-bottom: none;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          @include sans_l(13px);
+          img {
+            max-width: 100px;
+          }
+          .actions {
+            span {
+              display: inline-block;
+              margin: 0 5px;
+            }
+            .fa {
+              display: inline-block;
+              margin: 0 5px;
+              cursor: pointer;
+            }
+          }
+          .fa-remove {
+            color: $pink;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .summary {
+    float: right;
+    background: $green;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    p {
+      margin-bottom: 0;
+      padding: 15px;
+      @include sans_l(13px);
+      span {
+        @include sans_b(16px);
+      }
+    }
+  }
+  .bar {
+    float: right;
+    width: 100%;
+    border-top: solid 1px #dddddd;
+    padding: 20px 0;
+    .basic-btn {
+      background: $black;
+      padding: 5px;
+      color: white;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    }
+  }
+}
+
+.checkout {
+  .table {
+    thead {
+      tr {
+        th {
+          @include sans_r(13px);
+          background: $green;
+          padding: 2px;
+        }
+      }
+    }
+    tbody {
+      td {
+        @include sans_l(13px);
+        img {
+          max-width: 50px;
+        }
+      }
+    }
+  }
+  .summary {
+    text-align: center;
+    background: $dgreen;
+    color: white;
+    padding: 5px;
+    p {
+      margin-bottom: 0;
+      @include sans_l(13px);
+      span {
+        @include sans_b(20px);
+      }
+    }
+  }
+  .payment-informations {
+    .input-group {
+      width: 100%;
+      input {
+        display: block;
+        width: 100%;
+        height: 30px;
+        @include sans_l(13px);
+        margin-bottom: 15px;
+        border-radius: 0;
+      }
     }
   }
 }

@@ -4,8 +4,8 @@
     <title>RailsDevTest</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
@@ -14,7 +14,7 @@
     <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <%= value %>
+            <%= value.html_safe %>
         </div>
     <% end %>
 

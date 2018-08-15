@@ -1,0 +1,55 @@
+<section class="basket">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h3>Basket</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <% if @products.any? %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @products.each do |p| %>
+                    <tr>
+                      <td>
+                        <%= image_tag p['image'], :class => 'img-responsive', :alt => 'product' %>
+                      </td>
+                      <td><%= p['name'] %></td>
+                      <td>
+                        <div class="actions noselect" data-product-id="<%= p['id'] %>">
+                          <span><%= p['quantity'] %></span>
+                          <i class="fa fa-minus noselect"></i>
+                          <i class="fa fa-plus noselect"></i>
+                        </div>
+                      </td>
+                      <td><%= number_to_currency(p['price'], precision: 2) %></td>
+                      <td>
+                        <i class="fa fa-remove" data-product-id="<%= p['id'] %>"></i>
+                      </td>
+                    </tr>
+                  <% end %>
+              </tbody>
+            </table>
+            <div class="summary">
+              <p>Total: <span><%= number_to_currency(@total_price, precision: 2) %></span></p>
+            </div>
+            <div class="bar">
+              <%= link_to 'Checkout', checkout_path, :class => 'basic-btn' %>
+            </div>
+          <% else %>
+            <p>Add some products to your basket</p>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>

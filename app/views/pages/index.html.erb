@@ -4,22 +4,26 @@
       <% if @products.any? %>
           <% @products.each do |p| %>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <div class="product-box">
+                <div class="product-box animated fadeIn">
                   <h4><%= number_to_currency(p.price, precision: 2) %></h4>
-                  <div class="image-box">
+                  <a data-fancybox="gallery" href="<%= p.image.url(:medium) %>" class="image-box">
                     <%= image_tag p.image.url(:basic), :class => 'img-responsive', :alt => p.name %>
-                  </div>
+                  </a>
                   <h3><%= p.name %></h3>
-                  <div class="quantity">
-                    <label>Qty</label>
-                    <input type="number" value="0" min="0"/>
-                  </div>
-                  <span class="basic-btn" data-product="<%= p.id %>">Add to basket</span>
+                  <% if user_signed_in? %>
+                      <div class="quantity">
+                        <label>Qty</label>
+                        <input type="number" value="0" min="0"/>
+                      </div>
+                      <span class="basic-btn" data-product-name="<%= p.name %>" data-product-id="<%= p.id %>" data-product-price="<%= p.price %>">Add to basket</span>
+                  <% end %>
                 </div>
               </div>
           <% end %>
       <% else %>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 
+          </div>
       <% end %>
     </div>
   </div>

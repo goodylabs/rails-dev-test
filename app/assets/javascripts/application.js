@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require js.cookie.js
-//= require turbolinks
+//= require jquery.fancybox.min.js
 //= require_tree .
