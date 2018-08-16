@@ -4,6 +4,7 @@ $(document).ready(function() {
     BasketCookies.init();
     Alert.init();
 
+    if($('#new_order').length > 0 ) CheckoutFormValidator.init();
 });
 
 var Alert = {
@@ -13,6 +14,45 @@ var Alert = {
     hide: function() {
         $('.alert button').click(function() {
             $('.alert').fadeOut();
+        });
+    }
+};
+
+var CheckoutFormValidator = {
+    init: function() {
+        $('#new_order').validate({
+            rules: {
+                'order[email]': {
+                    required: true,
+                    email: true
+                },
+                'order[address]': {
+                    required: true
+                },
+                'card_type': {
+                    required: true
+                },
+                'card_number': {
+                    required: true,
+                    minlength: 16,
+                    maxlength: 16
+                },
+                'card_expiration_month': {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2
+                },
+                'card_expiration_year': {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2
+                },
+                'card_cvv': {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 3
+                }
+            }
         });
     }
 };

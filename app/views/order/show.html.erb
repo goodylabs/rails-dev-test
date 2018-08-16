@@ -8,11 +8,11 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <% if @orders.any? %>
-            <table class="table">
+            <table class="table animated slideInUp">
               <thead>
               <tr>
                 <th>Lp.</th>
-                <th>Order no.</th>
+                <th>Order</th>
                 <th>Products</th>
                 <th>Price</th>
                 <th>Address</th>
@@ -38,7 +38,7 @@
                         <tbody>
                             <% o.order_products.each do |p| %>
                                 <tr>
-                                  <td><%= p.product.name %></td>
+                                  <td><%= p.product.nil? ? 'Not found' : p.product.name %></td>
                                   <td><%= p.quantity %></td>
                                   <td><%= number_to_currency(p.price, precision: 2) %></td>
                                 </tr>

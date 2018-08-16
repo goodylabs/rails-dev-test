@@ -40,9 +40,9 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <div class="payment-informations">
+            <div class="payment-informations animated slideInRight">
               <h5>Payment informations</h5>
-              <%= form_for Order.new, :url => create_order_path, :class => 'clearfix' do %>
+              <%= form_for Order.new, :url => create_order_path do %>
                 <div class="input-group">
                   <input type="email" name="order[email]" placeholder="E-mail"/>
                 </div>
@@ -50,29 +50,29 @@
                   <input type="text" name="order[address]" placeholder="Address"/>
                 </div>
                 <div class="input-group">
-                  <select name="order[card_type]">
+                  <select name="card_type">
                     <option value="VISA">Visa</option>
                     <option value="MASTERCARD">MasterCard</option>
                   </select>
                 </div>
                 <div class="input-group">
-                  <input type="number" name="order[card_number]" placeholder="Card number"/>
+                  <input type="number" name="card_number" placeholder="Card number"/>
                 </div>
                 <div class="input-group">
                   <label>Expiration date</label>
                   <div class="expiration-date">
                     <div class="small-input">
                       <span>MM</span>
-                      <input type="number" name="order[card_expiration_month]" min="1" max="12" value=""/>
+                      <input type="number" name="card_expiration_month" min="1" max="12" value=""/>
                     </div>
                     <div class="small-input">
                       <span>YY</span>
-                      <input type="number" name="order[card_expiration_year]" min="1" max="99" value=""/>
+                      <input type="number" name="card_expiration_year" min="1" max="99" value=""/>
                     </div>
                   </div>
                 </div>
                 <div class="input-group">
-                  <input type="number" name="order[card_cvv]" min="1" max="999" placeholder="CVV"/>
+                  <input type="number" name="card_cvv" min="1" max="999" placeholder="CVV"/>
                 </div>
                 <button type="submit" class="basic-btn">Create order</button>
               <% end %>

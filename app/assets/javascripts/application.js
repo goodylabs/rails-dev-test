@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require js.cookie.js
-//= require jquery.fancybox.min.js
+
 //= require_tree .

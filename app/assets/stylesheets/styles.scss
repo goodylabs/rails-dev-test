@@ -40,6 +40,7 @@ $dgreen: #5f8d3d;
 
 body {
   padding-bottom: 50px;
+  overflow-x: hidden;
 }
 
 .noselect {
@@ -460,6 +461,13 @@ footer {
   .payment-informations {
     .input-group {
       width: 100%;
+      label.error {
+        position: absolute;
+        bottom: -3px;
+        font-size: 10px;
+        font-weight: 100;
+        color: red;
+      }
       select {
         width: 100%;
         display: block;

@@ -75,9 +75,10 @@ class OrderController < FrontendController
       #new order
       order = Order.new(order_params)
       #set user_id
-      order.user_id = current_user.id
+      order.user_id = current_user
       #set total_price
       order.total_price = total_price
+
       if order.save
 
         #prepare params for order_product in loop
@@ -112,6 +113,6 @@ class OrderController < FrontendController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :email, :address, :card_type, :card_number, :card_expiration_month, :card_expiration_year, :card_cvv, :order_products => [:id, :order_id, :product_id, :quantity, :price]);
+    params.require(:order).permit(:user_id, :email, :address, :order_products => [:id, :order_id, :product_id, :quantity, :price]);
   end
 end
