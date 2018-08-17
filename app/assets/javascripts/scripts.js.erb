@@ -172,7 +172,7 @@ var BasketCookies = {
             //if cookie exists add another product
             this.add(products, product, quantity);
         } else {
-            //if cookie not exists create new
+            //if cookie not exists create new one
             products = [];
             products.push(product);
             this.create(products);
@@ -184,7 +184,7 @@ var BasketCookies = {
         var cookie = Cookies.get('products'),
             counter = 0;
 
-        //count products in cookie, default 0
+        //count products, default 0
         if(cookie) {
             var products = JSON.parse(cookie);
             $.each( products, function( i, e ){

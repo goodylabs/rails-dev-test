@@ -1,12 +1,9 @@
-# Simple RoR test for candidates
-
-This repository contains basic Rails 5 application that can be developed by candidates applying to goodylabs
-
 # Getting started
 
 1. `bundle install`
 2. `rake db:create`
-3. `rails s`
+3. `rake db:seed`
+4. `rails s`
 
 # The goal
 
@@ -32,5 +29,17 @@ The goal of the exercise is to create a checkout system that fulfills the criter
  Note: 
 - No attention will be paid to the look and feel of this task. Pages can be plain HTML.
 
-
 ----------
+
+About:
+
+Products are created by the admin and should have fields such as: name, quantity, price.
+A user should have account in order to buy products (in other case user can't buy anything).
+Only products in stock (quantity > 0) are visible for user.
+On client side, products are stored in cookie for 1 day.
+If the user creates an order, cookie is cleared.
+Before being redirected to checkout page, quantity of every product in basket should be checked.
+If the user tries to order more than we have on stock, there would be an error message.
+Before creating order a form is validated
+After order create quantity of ordered products are updated
+Signed in users have "Orders" subpage and can check all their orders

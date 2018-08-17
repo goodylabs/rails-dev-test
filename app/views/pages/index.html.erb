@@ -7,7 +7,7 @@
                 <div class="product-box animated fadeIn">
                   <h4><%= number_to_currency(p.price, precision: 2) %></h4>
                   <a data-fancybox="gallery" href="<%= p.image.url(:medium) %>" class="image-box">
-                    <%= image_tag p.image.url(:basic), :class => 'img-responsive', :alt => p.name %>
+                    <%= image_tag (p.image.nil? ? 'logo' : p.image.url(:basic)), :class => 'img-responsive', :alt => p.name %>
                   </a>
                   <h3><%= p.name %></h3>
                   <% if user_signed_in? %>

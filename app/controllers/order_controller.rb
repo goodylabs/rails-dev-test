@@ -75,24 +75,28 @@ class OrderController < FrontendController
       #new order
       order = Order.new(order_params)
       #set user_id
-      order.user_id = current_user
+      order.user_id = current_user.id
       #set total_price
       order.total_price = total_price
 
+      #prepare order_products in loop
+      all_products = []
+      products.each do |p|
+        product = {
+            order_id: order.id,
+            product_id: p['id'],
+            quantity: p['quantity'],
+            price: p['price']
+        }
+        all_products << product
+      end
+
+      order.order_products_attributes = all_products
+
       if order.save
 
-        #prepare params for order_product in loop
+        #update products quantity
         products.each do |p|
-          product = {
-              order_id: order.id,
-              product_id: p['id'],
-              quantity: p['quantity'],
-              price: p['price']
-          }
-          item = order.order_products.build(product)
-          item.save
-
-          #update product quantity
           product_to_update = Product.find(p['id'])
           puts product_to_update
           product_to_update.decrement!(:quantity, p['quantity'])
