@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: order_products
+#
+#  id         :bigint(8)        not null, primary key
+#  order_id   :bigint(8)
+#  product_id :bigint(8)
+#  quantity   :integer
+#  price      :decimal(10, 2)
+#
+
 require "rails_helper"
 
 RSpec.describe OrderProduct, :type => :model do
