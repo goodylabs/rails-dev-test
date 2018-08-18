@@ -37,7 +37,7 @@ Products are created by the admin and should have fields such as: name, quantity
 A user should have account in order to buy products (in other case user can't buy anything).
 Only products in stock (quantity > 0) are visible for user.
 On client side, products are stored in cookie for 1 day.
-If the user creates an order, cookie is cleared.
+If the user creates an order or is logged out cookie is cleared.
 Before being redirected to checkout page, quantity of every product in basket should be checked.
 If the user tries to order more than we have on stock, there would be an error message.
 Before creating order a form is validated
