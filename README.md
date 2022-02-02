@@ -1,6 +1,14 @@
+![Goodylabs_logo](https://user-images.githubusercontent.com/1035770/151546790-59ffd0b3-3caa-4ecd-918b-cecfcfdfcccb.png)
+
+# Welcome
+
+👋 Hey there! If you got here, it means you've decided to accept our little test assignment. That's great! We're really happy to see you here. We hope you'll find this  easy and will 🚀 blaze through it in minutes 😀 If you do we'd love to welcome you to our team of true motherhackers.
+
+Good Luck!
+
 # Simple RoR test for candidates
 
-This repository contains basic Rails 5 application that can be developed by candidates applying to goodylabs
+This repository holds a pretty basic Rails 5 app. A candidate applying to goodylabs is asked to fork this repo and submit a PR once they're done with the assignment.
 
 # Getting started
 
@@ -10,21 +18,22 @@ This repository contains basic Rails 5 application that can be developed by cand
 
 # The goal
 
-The goal of the exercise is to create a checkout system that fulfills the criteria listed below:
-1. Products can be added to a cart
-2. Products can be removed from a cart
+The goal of the exercise is to create a checkout system that meets the requirements listed below:
+
+1. Products can be added to the Cart
+2. Products can be removed from the Cart
 3. A Cart can be checked out - a total price is calculated
-4. Customer’s Email, Address and Credit card details are required to check out
-5. Customers will have an Order after checking out that contains all the cart items
+4. A Customer’s Email, Address and Credit Card details are required to check out
+5. After checking out, the Customer will have an Order that contains all the cart items
 6. Products can be managed from ActiveAdmin (https://github.com/activeadmin/activeadmin) or RailsAdmin (https://github.com/sferik/rails_admin)
 7. Products should have at least a name and a price
 8. Products can be bought more than once
     
 # Deliverables :
-- Create a database that can support the criteria
-- Create pages to accommodate functionality
+- Create a database that can support the requirements listed above 
+- Create pages to accommodate the required functionality
 - Validation of intended functionality
-- Brief written summary of approach, assumptions, caveats and notes
+- Brief summary of your approach, assumptions, caveats and notes (in a form of a README.md)
 - Instructions on how to run the project
 - Submission should be a GitHub repository
 - RSpec tests 
