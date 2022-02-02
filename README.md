@@ -29,7 +29,7 @@ The goal of the exercise is to create a checkout system that meets the requireme
 7. Products should have at least a name and a price
 8. Products can be bought more than once
     
-# Deliverables :
+# Deliverables
 - Create a database that can support the requirements listed above 
 - Create pages to accommodate the required functionality
 - Validation of intended functionality
