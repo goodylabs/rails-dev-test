@@ -43,3 +43,11 @@ The goal of the exercise is to create a checkout system that meets the requireme
 
 
 ----------
+# Solution
+## Changes
+- PostgreSQL instead of MySQL (i did not want to install MySql on my local env ;) )
+## Getting started
+### DB credentials
+- credentials are stored in `config/credentials.yml.enc`
+- do in your terminal `EDITOR={your_editor} rails credentials:edit` to provide credentials, i.e. do `EDITOR=nano rails credentials:edit` if your editor is nano
+

@@ -1,0 +1,37 @@
+require: rubocop-rails
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  ExtraDetails: false
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 2.7.4
+  # Include:
+  #   - '**/Rakefile'
+  #   - '**/config.ru'
+  #   - '**/Gemfile'
+  Exclude:
+    - "bin/**/*"
+    - "db/**/*"
+    - "spec/**/*_helper.rb"
+    - "spec/**/*_spec.rb"
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "vendor/**/*"
+
+Style/Documentation:
+  Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
+Style:
+  Exclude:
+    - "Gemfile.lock"
+    - "Rakefile"
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  SafeAutoCorrect: true
+Layout/LineLength:
+  Max: 120
+  Exclude:
