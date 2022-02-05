@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4.6'
 # Use sqlite3 as the database for Active Record
 # gem 'mysql2'
@@ -28,8 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
-
 gem 'loofah', '>= 2.2.3'
+gem 'money-rails', '~>1.12'
 gem 'rack', '>= 2.0.6'
 
 # Use Capistrano for deployment
@@ -39,6 +38,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
+
+  gem 'database_cleaner-active_record'
   gem 'pry-rails'
   gem 'rspec'
 end
@@ -59,6 +60,7 @@ group :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
