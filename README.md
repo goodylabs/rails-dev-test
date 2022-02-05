@@ -44,8 +44,9 @@ The goal of the exercise is to create a checkout system that meets the requireme
 
 ----------
 # Solution
-## Changes
+## Assumptions & Changes
 - PostgreSQL instead of MySQL (i did not want to install MySql on my local env ;) )
+- Admin users, user authorization and authenticaton are in scope of this task (can be added later)
 ## Getting started
 ### DB credentials
 - credentials are stored in `config/credentials.yml.enc`
