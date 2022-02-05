@@ -5,7 +5,7 @@ if Rails.env.development?
 
   ActiveRecord::Migration.say_with_time('Creating Products') do
     (1..30).each do |i|
-      product = Product.new(name: "Shirt_#{i}")
+      product = Product.new(name: Faker::Commerce.product_name)
       product.price = Money.new(rand(10000), 'PLN')
       product.save!
     end

@@ -42,6 +42,7 @@ group :development, :test do
   gem 'database_cleaner-active_record'
   gem 'pry-rails'
   gem 'rspec'
+  gem 'faker'
 end
 
 group :development do
@@ -57,7 +58,6 @@ end
 group :test do
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
