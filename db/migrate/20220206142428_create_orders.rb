@@ -1,0 +1,11 @@
+class CreateOrders < ActiveRecord::Migration[5.2]
+  def change
+    create_table :orders do |t|
+      t.integer :status, null: false, default: 0
+      t.monetize :value
+      t.references :cart, type: :integer, index: true, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

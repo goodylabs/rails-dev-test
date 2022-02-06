@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     @_shopping_cart = ShoppingCart.new(cart_identifier)
-    set_cart_identifier(@_shopping_cart.cart.identifier) if cart_identifier.blank?
+    store_cart_identifier(@_shopping_cart.cart.identifier) if cart_identifier.blank?
     @_shopping_cart
   end
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     session[:cart_identifier]
   end
 
-  def set_cart_identifier(_cart_identifier)
+  def store_cart_identifier(_cart_identifier)
     session[:cart_identifier] = @_shopping_cart.cart.identifier
   end
 end

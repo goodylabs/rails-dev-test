@@ -20,6 +20,8 @@ RSpec.describe "CartItems", type: :request do
         end
   
         it 'should add new product to cart' do        
+
+
           do_request
 
           cart.reload

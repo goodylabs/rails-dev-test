@@ -7,12 +7,7 @@ class ShoppingCart
 
   def initialize(cart_identifier = nil)
     @cart_identifier = cart_identifier
-    @cart = find_cart || create_cart
-  end
-
-  def create_cart
-    identifier = (0...10).map { ('a'..'z').to_a[rand(26)] }.join
-    Cart.create!(identifier: identifier)
+    @cart = build_cart
   end
 
   def add_item(product_id:, quantity:)
@@ -52,11 +47,22 @@ class ShoppingCart
 
   private
 
+  def build_cart
+    existing_cart = find_cart
+
+    existing_cart.presence || create_cart
+  end
+
   def find_cart
     Cart.where(identifier: cart_identifier).first
   end
 
   def new_product?(product_id:)
     cart.cart_items.where(product_id: product_id).empty?
+  end
+
+  def create_cart
+    identifier = (0...10).map { ('a'..'z').to_a[rand(26)] }.join
+    Cart.create!(identifier: cart_identifier)
   end
 end
