@@ -40,9 +40,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
 
   gem 'database_cleaner-active_record'
+  gem 'faker'
   gem 'pry-rails'
   gem 'rspec'
-  gem 'faker'
 end
 
 group :development do

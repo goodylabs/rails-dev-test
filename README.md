@@ -44,11 +44,22 @@ The goal of the exercise is to create a checkout system that meets the requireme
 
 ----------
 # Solution
-## Assumptions & Changes
-- PostgreSQL instead of MySQL (i did not want to install MySql on my local env ;) )
-- Admin users, user authorization and authenticaton are in scope of this task (can be added later)
+
 ## Getting started
 ### DB credentials
 - credentials are stored in `config/credentials.yml.enc`
 - do in your terminal `EDITOR={your_editor} rails credentials:edit` to provide credentials, i.e. do `EDITOR=nano rails credentials:edit` if your editor is nano
 
+## Assumptions & Changes
+- PostgreSQL instead of MySQL (i did not want to install MySql on my local env ;) )
+- Admin users, user authorization and authenticaton are in scope of this task (can be added later). 
+- As we do not have users - there is no association between Cart and its owner. it si why `identifier` attribute is used to distinguish carts
+- Cart is created when customer adds first product (we should track in future abandoned carts) and is not deleted immediatelly after user removes all products. 
+- Cart can be in one of following states:
+  - new (with or wothout products)
+  - abandoned (with or without products, if customer did not finish checkout process within a certain period of time )
+  - purchased (when customer finished checkout process)
+
+## Worth considering
+- should cart have `value` attribute?
+- Cart.status could be a custom enum type defined in Postgres
