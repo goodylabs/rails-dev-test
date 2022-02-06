@@ -9,10 +9,20 @@
   </head>
 
   <body>
-  <div id="header">
-    <b>Ilość produków w koszyku: <%= current_cart.count_products %></b>
-  </div>
+    <div id="header">
+      <b>Ilość produków w koszyku: <%= current_cart.items_count %></b>
+    </div>
+    
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
+
     <%= console %>
   </body>
 </html>

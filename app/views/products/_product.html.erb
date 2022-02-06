@@ -1,3 +1,7 @@
 <div id="products">
-  <li><%= product_with_price(product) %></li>
+  <li>
+    <%= product_with_price(product) %>
+    
+    <%= link_to 'Dodaj', cart_items_path(product_id: product.id, quantity: 1), method: :post %>
+  </li>
 </div>

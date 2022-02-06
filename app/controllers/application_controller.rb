@@ -5,14 +5,18 @@ class ApplicationController < ActionController::Base
   helper_method :current_cart
 
   def current_cart
-    @_current_cart = find_cart || Cart.new
+    shopping_cart = ShoppingCart.new(cart_identifier)
+    set_cart_identifier(shopping_cart.cart.identifier) if cart_identifier.blank?
+    shopping_cart
   end
 
   private
 
-  def find_cart
-    return if session[:cart_identifier].blank?
+  def cart_identifier
+    session[:cart_identifier]
+  end
 
-    Cart.where(identifier: identifier).first
+  def set_cart_identifier(_cart_identifier)
+    session[:cart_identifier] = shopping_cart.cart.identifier
   end
 end

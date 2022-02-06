@@ -35,3 +35,7 @@ Style/FrozenStringLiteralComment:
 Layout/LineLength:
   Max: 120
   Exclude:
+Metrics/ClassLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
