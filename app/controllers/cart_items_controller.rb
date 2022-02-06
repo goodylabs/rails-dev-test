@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
       quantity: quantity
     )
 
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: products_path)
 
     if result.success?
       flash[:notice] = 'Dodano produkt'
