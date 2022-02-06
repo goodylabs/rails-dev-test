@@ -19,6 +19,22 @@ class CartItemsController < ApplicationController
     end
   end
 
+  def destroy
+    product_id = cart_item_params[:product_id]
+
+    result = current_cart.remove_item(
+      product_id: product_id
+    )
+
+    redirect_back(fallback_location: carts_path)
+
+    if result.success?
+      flash[:notice] = 'Usunięto produkt'
+    else
+      flash[:alert] = result.failure[:message]
+    end
+  end
+
   private
 
   def cart_item_params

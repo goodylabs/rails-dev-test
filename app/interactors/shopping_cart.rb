@@ -38,12 +38,16 @@ class ShoppingCart
     )
   end
 
-  # def items
-  #   store.items
-  # end
+  def items
+    cart.cart_items
+  end
 
   def items_count
     cart.cart_items.sum(:quantity)
+  end
+
+  def value
+    Money.new(cart.cart_items.sum(:price_cents))
   end
 
   private

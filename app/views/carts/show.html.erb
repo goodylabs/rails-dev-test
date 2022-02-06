@@ -1,0 +1,15 @@
+<h1> Cart content (wartość: <%= humanized_money_with_symbol current_cart.value %>)</h1>
+<table>
+  <tr>
+    <th>Produkt</th>
+    <th>Ilość</th>
+    <th>Cena</th>
+    <th>Akcje</th>
+  </tr>
+  <% current_cart.items.each do |cart_item| %>
+    <%= render '/cart_items/cart_item', cart_item: cart_item %>
+  <% end %>
+</table>
+
+<%= button_to 'Produkty', root_path, method: :get %>
+

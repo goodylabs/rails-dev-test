@@ -2,5 +2,9 @@
 
 class CartItem < ApplicationRecord
   belongs_to :cart
-  has_one :product
+  belongs_to :product
+
+  def price
+    Money.new(price_cents, price_currency)
+  end
 end
