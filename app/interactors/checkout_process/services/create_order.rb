@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Checkout
+class CheckoutProcess
   module Services
     class CreateOrder
       include Dry::Monads[:result]

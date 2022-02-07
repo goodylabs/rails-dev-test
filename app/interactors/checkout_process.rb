@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Checkout
+class CheckoutProcess
   include Dry::Monads[:result]
   attr_reader :shopping_cart
   attr_accessor :order
@@ -18,7 +18,7 @@ class Checkout
   end
 
   def create_order
-    result = Checkout::Services::CreateOrder.new.call(shopping_cart: shopping_cart)
+    result = CheckoutProcess::Services::CreateOrder.new.call(shopping_cart: shopping_cart)
     result.value!
   end
 end

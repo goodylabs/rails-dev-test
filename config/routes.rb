@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   post '/checkout', to: 'checkouts#create', as: :create_checkout
   get '/checkout/(:step)', to: 'checkouts#edit', as: :checkout
+  patch '/checkout/(:step)', to: 'checkouts#update', as: :checkout_update
   
   root 'products#index', as: :products
 end

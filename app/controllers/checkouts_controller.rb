@@ -4,12 +4,14 @@ class CheckoutsController < ApplicationController
   def create
     build_order
 
-    redirect_to checkout_path(step: 'a')
+    redirect_to checkout_path(step: 'customer_details')
   end
 
-  def edit; end
+  def edit
+    render params['step']
+  end
 
   def build_order
-    @order ||= Checkout.new(current_cart).order
+    @order ||= CheckoutProcess.new(current_cart).order
   end
 end
