@@ -90,6 +90,4 @@ class CheckoutProcess
   #   create_order unless shopping_cart.cart.order
   #   shopping_cart.cart.order
   # end
-
-
 end
