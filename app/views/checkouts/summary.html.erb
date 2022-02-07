@@ -1,1 +1,20 @@
+<%= render 'checkout_info'  %>
+
 <h1>Summary</h1>
+
+<h2>Customer details</h2>
+  <% @checkout.customer_details.each do |key, value| %>
+    <p><%= value %></p>
+  <% end %>
+
+<h2>Delivery address</h2>
+  <% @checkout.delivery_address.each do |key, value| %>
+    <p><%= value %></p>
+  <% end %>
+
+<h2>Payment details</h2>
+  <% @checkout.payment_details.each do |key, value| %>
+    <p><%= value %></p>
+  <% end %>
+
+<%= link_to 'Make payment', make_payment_path, method: :post %>

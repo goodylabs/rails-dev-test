@@ -5,6 +5,9 @@ class CheckoutProcess
     class CreateOrder
       include Dry::Monads[:result]
 
+      # TODO
+      # we should also create order_items from cart_items
+
       def call(shopping_cart:)
         cart = shopping_cart.cart
         value = shopping_cart.value.cents

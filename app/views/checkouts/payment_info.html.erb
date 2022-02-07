@@ -1,6 +1,6 @@
 <%= render 'checkout_info'  %>
 
-<h1>Customer details</h1>
+<h1>Payment info</h1>
 
 
 <% if @form.errors.any? %>
@@ -15,11 +15,10 @@
 
 <%= form_with model: @form, scope: :checkout, url: checkout_update_path(step: params[:step]), local: true, html: { method: :patch } do |form| %>
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :payment_method %>
+    <%= form.text_field :payment_method %>
   </div>
 
   <%= link_to 'Back', checkout_path(step: @checkout_process.previous_step.name) %>
   <%= form.submit 'Next' %>
-
 <% end %>

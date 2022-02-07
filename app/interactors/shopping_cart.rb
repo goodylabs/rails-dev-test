@@ -62,7 +62,10 @@ class ShoppingCart
   end
 
   def create_cart
-    identifier = (0...10).map { ('a'..'z').to_a[rand(26)] }.join
-    Cart.create!(identifier: cart_identifier)
+    Cart.create!(identifier: build_identifier)
+  end
+
+  def build_identifier
+    SecureRandom.base64(10).tr('+/=lIO0', 'abcdefg')
   end
 end

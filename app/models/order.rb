@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# TODO
+# OrderItem model should be created
+
 class Order < ApplicationRecord
   belongs_to :cart
 
