@@ -28,7 +28,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'devise'
 gem 'will_paginate'
-
+gem 'activeadmin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

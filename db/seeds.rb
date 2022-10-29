@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', name: "Michał", surname: "Kasperek", address: "City name", credit_card:"1234567890", role: "admin") if Rails.env.development?
 User.create(email: 'michal@example.com', password: 'password', password_confirmation: 'password', name: "Michał", surname: "Kasperek", address: "City name", credit_card:"1234567890", role: "user") if Rails.env.development?
+AdminUser.create(email: "admin@example.com", password: "password")
 
 
 Product.create(name:"Jabłka grójeckie", price:5.00)
@@ -19,3 +20,4 @@ Product.create(name:"Woda źródlana ngaz", price: 0.99)
 Product.create(name:"Woda źródlana gaz", price: 0.99)
 Product.where(name:"Woda źródlana gaz", price: 0.99).first_or_create
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
