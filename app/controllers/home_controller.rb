@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index, :show]
 
   def index
     @products = Product.all
@@ -18,6 +18,11 @@ class HomeController < ApplicationController
         render :action => 'add'
       end
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
   private
   def product_params
     params.permit(:name, :price)

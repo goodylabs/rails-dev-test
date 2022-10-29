@@ -3,7 +3,7 @@
     <th scope="col">Product name</th>
     <th scope="col">Price [zł]</th>
     <th scope="col">Add</th>
-    <th scope="col">Add</th>
+    <th scope="col">Show</th>
 
     </tr>
     </thead>
@@ -22,7 +22,7 @@
                 <% end %>
 
         </td>
-                <td>edit</td>
+                <td><%= link_to "show", product_show_path(product.id) %></td>
 
         <%
 =begin%>
