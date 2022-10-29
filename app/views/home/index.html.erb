@@ -11,6 +11,13 @@
       <% @products.each do |product| %>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
+        <td>
+        <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: product.id %>
+        <%= f.number_field :quantity, value: 0, min: 1 %>
+        <%= f.submit "Add to cart" %>
+        <% end %>
+        </td>
         <%
 =begin%>
  <td><%= link_to  "Edit", edit_admin_product_path(product.id) %></td>

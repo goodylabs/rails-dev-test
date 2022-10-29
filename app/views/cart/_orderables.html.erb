@@ -1,17 +1,11 @@
-<h1>Your Cart is here</h1> <br/>
-<h2>Your total is $<%= @cart.total %> </h2> <br/>
-<h3> Prodct list is:</h3>
 <% @cart.orderables.each do |orderable| %>
   <% product = orderable.product %>
   <div id="<%= "cart-#{product.id}" %>">
-    <div style="display:flex;justify-content:space-between;margin: 0em 5em;"> 
-    <br/>
+    <div style="display:flex;justify-content:space-between;margin: 0em 5em;">
       <strong>Name:</strong>
-      <%= product.name %> 
+      <%= product.name %>
       <strong>Price:</strong>
       <%= product.price %>
-            <strong>quantity:</strong>
-      <%= orderable.quantity %>
       <%= form_with(url: cart_add_path) do |f| %>
         <%= f.hidden_field :id, value: product.id %>
         <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
@@ -19,13 +13,10 @@
       <% end %>
       <%= form_with(url: cart_remove_path) do |f| %>
         <%= f.hidden_field :id, value: orderable.id %>
-        <%= f.submit "DELETE" %>
+        <%= f.submit "X" %>
       <% end %>
       <strong>Total:</strong>
       <%= orderable.total %>
     </div>
   </div>
 <% end %>
-<div align="right">
-    <p> Total: <%= @cart.total %> </p>
-    </div>

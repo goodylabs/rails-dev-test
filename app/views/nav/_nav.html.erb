@@ -7,7 +7,11 @@
     <div class="navbar-nav">
       <%= link_to "Home", root_path, class: "nav-item nav-link" %>
       <%= link_to "Add product", product_new_path, class: "nav-item nav-link" %>
-      
+       <%= link_to 'Show cart', show_cart_path, class: "nav-item nav-link" %>
+          <%  if @cart.present? %>
+            <span class="badge badge-primary" style="background-color: red"> <%= @cart.orderables.count() %></span> </div>
+        <% else %>
+          <% end %>
     </div>
   </div>
 </nav>

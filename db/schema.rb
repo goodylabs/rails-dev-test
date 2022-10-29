@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_29_112500) do
+ActiveRecord::Schema.define(version: 2022_10_29_131836) do
+
+  create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orderables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "cart_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orderables_on_cart_id"
+    t.index ["product_id"], name: "index_orderables_on_product_id"
+  end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
@@ -19,4 +34,6 @@ ActiveRecord::Schema.define(version: 2022_10_29_112500) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orderables", "carts"
+  add_foreign_key "orderables", "products"
 end
