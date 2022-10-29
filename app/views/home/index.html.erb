@@ -1,2 +1,30 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+ <table class="table">
+    <thead>
+    <th scope="col">Product name</th>
+    <th scope="col">Price [zł]</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Add</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <% @products.each do |product| %>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <%
+=begin%>
+ <td><%= link_to  "Edit", edit_admin_product_path(product.id) %></td>
+        <% if  @cart.include?(product) %>
+          <td> <%= link_to image_tag('shopping_cart.png', alt: "Insert new", width: 24), show_cart_path, method: :delete %> </td>
+        <% else %>
+          <td> <%= link_to  "Add to cart", add_to_cart_path(product.id) %></td>
+        <% end %> 
+<%
+=end%>
+
+
+        </tr>
+
+      <% end %>
+      </tbody>
+  </table>
