@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], :per_page => 6).order(:name)
   end
 
   def add
