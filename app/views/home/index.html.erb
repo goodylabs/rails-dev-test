@@ -2,8 +2,9 @@
     <thead>
     <th scope="col">Product name</th>
     <th scope="col">Price [zł]</th>
-    <th scope="col">Edit</th>
     <th scope="col">Add</th>
+    <th scope="col">Add</th>
+
     </tr>
     </thead>
     <tbody>
@@ -12,12 +13,17 @@
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td>
+        <% if user_signed_in? %>
         <%= form_with(url: cart_add_path) do |f| %>
         <%= f.hidden_field :id, value: product.id %>
         <%= f.number_field :quantity, value: 0, min: 1 %>
         <%= f.submit "Add to cart" %>
         <% end %>
+                <% end %>
+
         </td>
+                <td>edit</td>
+
         <%
 =begin%>
  <td><%= link_to  "Edit", edit_admin_product_path(product.id) %></td>
