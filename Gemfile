@@ -27,6 +27,7 @@ gem "loofah", ">= 2.2.3"
 gem "rack", ">= 2.0.6"
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
