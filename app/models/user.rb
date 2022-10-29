@@ -11,4 +11,15 @@ class User < ApplicationRecord
 
   enum role: [:admin, :moderator, :user]
 
+  after_initialize :set_defaults
+
+  private
+
+  def set_defaults
+    if self.new_record?
+      self.role ||= :user
+    end
+  end
+  #Ex:- :default =>''
+
 end

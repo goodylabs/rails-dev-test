@@ -8,7 +8,9 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <%= link_to "Home", root_path, class: "nav-item nav-link" %>
+      <% if current_user.role =="admin"%>
       <%= link_to "Add product", product_new_path, class: "nav-item nav-link" %>
+      <% end %>
        <%= link_to 'Show cart', show_cart_path, class: "nav-item nav-link" %>
           <%  if @cart.present? %>
             <span class="badge badge-primary" style="background-color: red"> <%= @cart.orderables.count() %></span> </div>

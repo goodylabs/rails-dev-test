@@ -13,7 +13,7 @@
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td>
-        <% if user_signed_in? %>
+        <% if user_signed_in?%>
         <%= form_with(url: cart_add_path) do |f| %>
         <%= f.hidden_field :id, value: product.id %>
         <%= f.number_field :quantity, value: 0, min: 1 %>
