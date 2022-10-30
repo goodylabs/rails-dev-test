@@ -1,45 +1,43 @@
-![Goodylabs_logo](https://user-images.githubusercontent.com/1035770/151546790-59ffd0b3-3caa-4ecd-918b-cecfcfdfcccb.png)
+Michal Kasperek appliaction shopping cart
 
-# Welcome
+#About the application
+Thanks to the application I wrote, we can easily add products to the cart. First, users should log in and, if they are new, register - by default, they are assigned the "user" role. If the user has the role "user", he can add products to the cart and view them. If the user has the role of "admin", he can add products to the cart, view products and add new products.
+Appropriate messages are displayed on the page, both about errors and about the correct execution of the operation. The application has separate forms for registration and login (I used gem devise), as a non-logged in user we have access to the home page - we can view items and display detailed information about them in a new view. Adding a product takes place on the home page, first we search for the product we are interested in and then select the quantity that interests us, after adding it, we can go to the basket where we can change the quantity that interests us, remove the product or products. The total price is displayed in the shopping cart. In the application I used pagination, thanks to which maximum 6 products are displayed on the page, they are sorted alphabetically by name. Also, ActiveAdmin panel was installed, with which we can easily manage data about products or users.
+I created my first tests for models: Product and Users with rspec gem. 
 
-👋 Hey there! If you got here, it means you've decided to accept our little test assignment. That's great! We're really happy to see you here. We hope you'll find this  easy and will 🚀 blaze through it in minutes 😀 If you do we'd love to welcome you to our team of true motherhackers.
+-----The setups steps expect following tools installed on the system-----
+*Git
+*Rails atleast 5.2.4.6 
+*Ruby 2.5.2 (used)
+*Mysql 
 
-Good Luck!
+#Installation and first run
+1. Download the repository
+git clone https://github.com/goodylabs/rails-dev-test.git 
+or
+git clone -b michal_cart https://github.com/goodylabs/rails-dev-test.git 
 
-# Simple RoR test for candidates
+2. Install gems
+bundle install
 
-This repository holds a pretty basic Rails 5 app. A candidate applying to goodylabs is asked to fork this repo and submit a PR once they're done with the assignment.
+3. Run the following commands to create and setup the database.
+rails db:create | rake db:create
+rails db:migrate | rake db:migrate
+rails db:seeds | rake db:setup
 
-# Getting started
+4. Start the Rails server
+You can start the rails server using the command given below.
+rails s
 
-1. `bundle install`
-2. `rake db:create`
-3. `rails s`
+And now you can visit the site with the URL http://localhost:3000
+As I promised:
+-login for admin: admin@example.com password
+-login for default user: 1. register or use: michal@example.com password
 
-# The goal
-
-The goal of the exercise is to create a checkout system that meets the requirements listed below:
-
-1. Products can be added to the Cart
-2. Products can be removed from the Cart
-3. A Cart can be checked out - a total price is calculated
-4. A Customer’s Email, Address and Credit Card details are required to check out
-5. After checking out, the Customer will have an Order that contains all the cart items
-6. Products can be managed from ActiveAdmin (https://github.com/activeadmin/activeadmin) or RailsAdmin (https://github.com/sferik/rails_admin)
-7. Products should have at least a name and a price
-8. Products can be bought more than once
-    
-# Deliverables
-- Create a database that can support the requirements listed above 
-- Create pages to accommodate the required functionality
-- Validation of intended functionality
-- Brief summary of your approach, assumptions, caveats and notes (in a form of a README.md)
-- Instructions on how to run the project
-- Submission should be a GitHub repository
-- RSpec tests 
- 
- Note: 
-- No attention will be paid to the look and feel of this task. Pages can be plain HTML.
+5*. Tests running
+bundle exec rspec spec/models/user_spec.rb
+bundle exec rspec spec/models/product_spec.rb
 
 
-----------
+Michał Kasperek
+
