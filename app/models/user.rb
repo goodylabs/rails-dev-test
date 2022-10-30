@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-  validates :surname, presence: true
+  validates :name, presence: true, length: {minimum: 2, maximum: 30, message: "is too short. It must be at least 2 characters"}
+  validates :surname, presence: true, length: {minimum: 2, maximum: 30, message: "is too short. It must be at least 2 characters"}
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   validates :address, :length => {  :in => 2..100 }
+  validates :credit_card, length: {minimum: 2, maximum: 30, message: "is incorrect."}
 
   enum role: [:admin, :moderator, :user]
 
