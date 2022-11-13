@@ -5,15 +5,23 @@
 #   gem 'sqlite3'
 #
 default: &default
+  host: localhost
   adapter: mysql2
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: root
-  password:
 
 development:
   <<: *default
   database: rails_dev_test_development
+  username: <%= ENV.fetch('DB_DEV_USERNAME') { 'root' } %>
+  password: <%= ENV.fetch('DB_DEV_PASSWORD') { 'nil' } %>
+
+production:
+  <<: *default
+  database: rails_dev_test_production
+  username: <%= ENV.fetch('DB_PROD_USERNAME') { nil } %>
+  password: <%= ENV.fetch('DB_PROD_PASSWORD') { nil } %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,3 +29,5 @@ development:
 test:
   <<: *default
   database: rails_dev_test_test
+  username: <%= ENV.fetch('DB_DEV_USERNAME') { 'root' } %>
+  password: <%= ENV.fetch('DB_DEV_PASSWORD') { 'nil' } %>
