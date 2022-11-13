@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :users
+  resources :users, only: []
 
   authenticated :user do
     root to: redirect('/users/edit'), as: :authenticated_user_root
