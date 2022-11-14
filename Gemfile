@@ -34,6 +34,11 @@ gem "rack", ">= 2.0.6"
 gem 'devise'
 gem 'devise-i18n'
 
+# Use Active Admin for create admin panel
+gem 'activeadmin'
+gem 'draper'
+gem 'pundit'
+
 # Use CanCanCan for authorization
 gem 'cancancan'
 

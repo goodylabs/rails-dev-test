@@ -2,6 +2,7 @@
   "name": "rails-dev-test",
   "private": true,
   "dependencies": {
+    "@activeadmin/activeadmin": "^2.13.1",
     "@rails/webpacker": "4.3.0"
   },
   "devDependencies": {
