@@ -14,22 +14,9 @@ user = FactoryBot.create(
   :user
 )
 
-# cart
-cart = FactoryBot.create(
-  :cart,
-  user_id: user.id
-)
-
 # products
 rand(10..20).times do |_i|
   product = FactoryBot.create(
     :product
-  )
-  next unless [true, false].sample
-
-  FactoryBot.create(
-    :product_order,
-    product_id: product.id,
-    cart_id: cart.id
   )
 end
