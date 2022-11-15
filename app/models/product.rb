@@ -25,7 +25,7 @@ class Product < ApplicationRecord
   end
 
   private
-  
+
   def check_min_quantity
     return if quantity >= 0
 
