@@ -41,7 +41,7 @@ en:
       checkout: Checkout
       no_orders: Your cart is empty
       no_credit_card_or_address: No credit cart, email or address
-      products_in_cart: "The number of products in cart: %{number}"
+      products_in_cart: "%{number} items for grand total of %{price}€"
 
   product_orders:
     create:

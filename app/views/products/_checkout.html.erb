@@ -2,7 +2,7 @@
   <%= t('.no_credit_card_or_address') %>
   <%= button_to t('.add_missing_data'), edit_user_registration_path, :method => :get, :form_class => "add-missing-data" %>
 <% elsif current_user&.cart&.product_orders.any? %>
-  <label><%= t('.products_in_cart', number: current_user.cart.product_orders.size) %></label>
+  <label><%= t('.products_in_cart', number: current_user.cart.total_products_number, price: current_user.cart.total_price) %></label>
   <%= simple_form_for [current_user, @order], url: user_orders_path(user_id: current_user.id), method: :post, html: { class: 'customized record-form' }, remote: true do |f| %>
       <%= f.object.errors.to_h[:availability] if f.object.errors.to_h.key?(:availability) %>
       <%= f.submit t('.checkout'), class: 'add-order' %>
