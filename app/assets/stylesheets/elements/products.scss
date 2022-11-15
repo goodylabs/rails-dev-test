@@ -7,10 +7,13 @@ div.products-container {
   .products-row {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     .product-container {
       margin: 10px;
       width: 200px;
+      display: flex;
+      flex-direction: column;
 
       .product-name {
         display: flex;
@@ -20,11 +23,30 @@ div.products-container {
         margin-bottom: 10px;
       }
 
+      .dropdown-menu {
+        display: none;
+        width: fit-content;
+        font-size: 12px;
+        line-height: 1rem;
+      }
+
+      .show:hover .dropdown-menu {
+        display: block;
+        transform: translate3d(0px, 0px, 0px);
+      }
+
       .product-price {
         display: flex;
         justify-content: center;
         font-size: 14px;
         font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .add-to-cart {
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
         margin-top: 10px;
       }
     }

@@ -1,4 +1,4 @@
-h2 {
+h1 {
   margin: 15px;
   border-bottom: double;
 }
@@ -18,6 +18,13 @@ div.cart-row {
     label {
       font-weight: lighter;
       font-size: 11px;
+    }
+
+    .product-counter {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      align-self: center;
     }
   
     .product-name {
@@ -52,6 +59,13 @@ div.cart-row {
       margin: 10px;
       width: 25%;
       font-weight: bold;
+    }
+
+    .delete-product {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      align-self: center;
     }
   }
   
