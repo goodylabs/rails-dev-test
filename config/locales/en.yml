@@ -43,6 +43,9 @@ en:
       currency: €
     product_order_tile:
       currency: €
+      delete: Delete
+    product_orders_list:
+      currency: €
   
   layouts:
     application:
