@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'products/new'
+  get 'products/create'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
@@ -9,10 +11,20 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :users, only: []
+  resources :users, only: [] do
+    resources :carts do
+      resources :product_orders, only: []
+    end
+    resources :orders do
+      resources :product_orders, only: []
+    end
+  end
+  resources :products do
+    resources :product_orders, only: []
+  end 
 
   authenticated :user do
-    root to: redirect('/users/edit'), as: :authenticated_user_root
+    root to: redirect('/products'), as: :authenticated_user_root
   end
   unauthenticated :user do
     devise_scope :user do
