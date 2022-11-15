@@ -8,14 +8,14 @@
     </div>
   </div>
   <div class="product-price">
-    <%= "#{t(".currency")} #{product.price}" %>
+    <%= "#{t(".currency")} #{product.price} (#{product.quantity} left)" %>
   </div>
   <div class="add-to-cart">
     <%= simple_form_for [product, @product_order], url: product_product_orders_path(product_id: product.id), method: :post, html: { class: 'customized record-form' }, remote: true do |f| %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= f.hidden_field :product_id, :value => product.id %>
       <%= f.hidden_field :cart_id, :value => current_user.cart.id %>
-      <%= f.input :quantity, :value => 1, :min => 1 %>
+      <%= f.input :quantity, input_html: { :value => 1, :min => 1 } %>
       <%= f.submit t('.add_to_cart'), class: 'add-product-to-cart' %>
     <% end %>
   </div>

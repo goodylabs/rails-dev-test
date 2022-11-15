@@ -12,6 +12,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.text_field :address, autocomplete: "address", label: false, placeholder: t('.address') %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :credit_card, autocomplete: "credit-card", label: false, placeholder: t('.credit_card') %>
+  </div>
+
+  <div class="field">
     <%= f.password_field :password, autocomplete: "new-password", label: false, placeholder: t('.password') %>
   </div>
 

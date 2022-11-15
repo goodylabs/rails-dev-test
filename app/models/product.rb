@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   has_many :product_orders, dependent: :destroy
 
+  validate :check_min_quantity
+
   enum category: {
     arabica: 0,
     robusta: 1,
@@ -14,5 +16,11 @@ class Product < ApplicationRecord
 
   def self.get_human_categories
     CATEGORIES.to_h { |k, _v| [Cv.human_enum_name(:categories, k), k] }
+  end
+
+  def check_min_quantity
+    return if quantity >= 0
+
+    errors.add(:quantity, I18n.t('errors.quantity.check_min_quantity', quantity: quantity))
   end
 end

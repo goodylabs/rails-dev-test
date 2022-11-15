@@ -1,0 +1,10 @@
+<% if current_user&.cart&.product_orders.any? %>
+  <label><%= t('.products_in_cart') %></label>
+  <%= current_user.cart.product_orders.size%>
+  <%= button_to t('.checkout'), products_path, :method => :get, :form_class => "checkout" %>
+<% elsif current_user.credit_card.nil? || current_user.address.nil? %>
+  <%= t('.no_credit_card_or_address') %>
+  <%= button_to t('.add_missing_data'), edit_user_registration_path, :method => :get, :form_class => "add-missing-data" %>
+<% else %>
+  <%= t('.no_orders') %>
+<% end %>

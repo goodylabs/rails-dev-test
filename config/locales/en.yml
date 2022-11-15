@@ -36,6 +36,12 @@ en:
     product_tile:
       currency: €
       add_to_cart: Add to cart
+    checkout:
+      add_missing_data: Add missing data
+      checkout: Checkout
+      no_orders: Your cart is empty
+      no_credit_card_or_address: No credit cart or address
+      products_in_cart: "The number of products in cart:"
 
   product_orders:
     create:
@@ -60,6 +66,7 @@ en:
   errors:
     quantity:
       check_max_quantity: 'Availible only %{quantity} pieces.'
+      check_min_quantity: Provide a valid quantity.
   
   layouts:
     application:
