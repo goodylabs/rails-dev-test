@@ -16,11 +16,11 @@ Rails.application.routes.draw do
       resources :product_orders, only: [:destroy]
     end
     resources :orders do
-      resources :product_orders, only: [:destroy]
+      resources :product_orders, only: []
     end
   end
   resources :products do
-    resources :product_orders, only: [:destroy]
+    resources :product_orders, only: [:create]
   end 
 
   authenticated :user do

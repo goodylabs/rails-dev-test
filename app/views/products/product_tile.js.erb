@@ -1,0 +1,3 @@
+if (document.getElementById('product-container-<%=@product_order.product.id%>')) {
+  document.getElementById('product-container-<%=@product_order.product.id%>').outerHTML = "<%= j render(partial: 'products/product_tile', locals: { product: @product_order.product }); %>"
+}

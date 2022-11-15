@@ -1,17 +1,7 @@
 <div class="page-container">
   <% if @products.any? %>
-    <div class="products-container">
-      <% @products.each_slice(3) do |left_product, center_product, right_product | %>
-        <div class="products-row">
-          <%= render partial: 'products/product_tile', locals: { product: left_product, position: 'left' } %>
-          <% if center_product.present? %>
-            <%= render partial: 'products/product_tile', locals: { product: center_product, position: 'center' } %>
-          <% end %>
-          <% if right_product.present? %>
-            <%= render partial: 'products/product_tile', locals: { product: right_product, position: 'right' } %>
-          <% end %>
-        </div>
-      <% end %>
+    <div id="products-form" class="products-container">
+      <%= render partial: 'products/products_list' %>
     </div>
   <% else %>
     <div class="no-records">
