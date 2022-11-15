@@ -3,5 +3,6 @@ class ProductsController < ApplicationController
 
   def index
     @product_order = ProductOrder.new
+    @order = Order.new
   end
 end

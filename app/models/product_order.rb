@@ -9,7 +9,7 @@ class ProductOrder < ApplicationRecord
   private
 
   def check_max_quantity
-    return if (quantity == quantity_was ? quantity : quantity - quantity_was) <= product.quantity
+    return if quantity <= product.quantity
 
     errors.add(:quantity, I18n.t('errors.quantity.check_max_quantity', quantity: product.quantity))
   end

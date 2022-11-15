@@ -14,6 +14,10 @@ div.cart-row {
     margin: 10px;
     justify-content: space-between;
     width: 600px;
+
+    &.invalid {
+      background-color: #FF7276;
+    }
   
     label {
       font-weight: lighter;

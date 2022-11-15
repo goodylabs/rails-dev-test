@@ -41,7 +41,7 @@ en:
       checkout: Checkout
       no_orders: Your cart is empty
       no_credit_card_or_address: No credit cart or address
-      products_in_cart: "The number of products in cart:"
+      products_in_cart: "The number of products in cart: %{number}"
 
   product_orders:
     create:
@@ -63,10 +63,15 @@ en:
     product_orders_list:
       currency: €
   
+  orders:
+    create:
+      order_created: Order complete
+  
   errors:
     quantity:
       check_max_quantity: 'Availible only %{quantity} pieces.'
       check_min_quantity: Provide a valid quantity.
+    availability: Some of products in your cart are no longer available in required numbers.
   
   layouts:
     application:

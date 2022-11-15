@@ -17,7 +17,6 @@ class ProductOrdersController < ApplicationController
   def destroy
     @cart = current_user.cart
     @product_order.destroy
-    ProductsService.new(@product_order.product.id, @product_order.quantity).increase_quantity
     respond_to do |format|
       format.js { render 'carts/product_orders_list.js.erb', layout: false }
     end
