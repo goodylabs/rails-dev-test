@@ -1,0 +1,18 @@
+<div class="product-container">
+  <div class="product-name">
+    <label><%= t('.name') %></label>
+    <%= product_order.product.name %>
+  </div>
+  <div class="product-quantity">
+    <label><%= t('.quantity') %></label>
+    <%= product_order.quantity %>
+  </div>
+  <div class="product-price">
+    <label><%= t('.price_per_unit') %></label>
+    <%= "#{t(".currency")} #{product_order.product.price}" %>
+  </div>
+  <div class="total-price">
+    <label><%= t('.total_price') %></label>
+    <%= "#{t(".currency")} #{product_order.product.price * product_order.quantity}" %>
+  </div>
+</div>
