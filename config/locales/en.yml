@@ -66,6 +66,10 @@ en:
   orders:
     create:
       order_created: Order complete
+    index:
+      date: "Date"
+      quantity: "Quantity:"
+      name: "Name:"
   
   errors:
     quantity:
@@ -79,3 +83,5 @@ en:
       login: Log in
       signup: Sign up
       edit_profile: Edit profile
+      orders: Orders
+      cart: Cart

@@ -1,0 +1,34 @@
+div.order-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .order-box {
+    display: flex;
+    margin: 10px;
+    flex-direction: row;
+    width: 500px;
+    justify-content: space-evenly;
+
+    label {
+      margin-right: 5px;
+    }
+
+    .order-number {
+      width: 5%;
+      margin: 10px;
+    }
+
+    .order-date {
+      margin: 10px;
+    }
+
+    .product-quantity {
+      margin: 10px;
+    }
+
+    .product-name {
+      margin: 10px;
+    }
+  }
+}

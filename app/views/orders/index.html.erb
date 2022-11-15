@@ -1,0 +1,23 @@
+<div class="order-container">
+  <% @orders.each.with_index do |order, index| %>
+    <div class="order-box">
+      <div class="order-number">
+        <%= index%>
+      </div>
+      <div class="order-date">
+        <label><%= t('.date') %></label>
+        <%= order.created_at%>
+      </div>
+    <% order.product_orders.each do |product_order| %>
+      <div class="product-quantity">
+        <label><%= t('.quantity') %></label>
+        <%= product_order.quantity %>
+      </div>
+      <div class="product-name">
+        <label><%= t('.name') %></label>
+        <%= product_order.product.name %>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>

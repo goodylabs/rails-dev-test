@@ -12,4 +12,7 @@ class OrdersController < ApplicationController
       end
     end
   end
+
+  def index
+  end
 end
