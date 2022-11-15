@@ -10,13 +10,13 @@
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 # user
-user = FactoryBot.create(
+FactoryBot.create(
   :user
 )
 
 # products
 rand(10..20).times do |_i|
-  product = FactoryBot.create(
+  FactoryBot.create(
     :product
   )
 end
