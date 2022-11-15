@@ -35,7 +35,18 @@ en:
   products:
     product_tile:
       currency: €
+
+  carts:
+    show:
+      back: Back to products list
+      cart: Your cart
+      currency: €
+    product_order_tile:
+      currency: €
   
   layouts:
     application:
       login_as: Logged in as
+      login: Log in
+      signup: Sign up
+      edit_profile: Edit profile
