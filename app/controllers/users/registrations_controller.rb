@@ -10,9 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
+  # rubocop:disable Lint/UselessMethodDefinition
   def create
     super
   end
+  # rubocop:enable Lint/UselessMethodDefinition
 
   # GET /resource/edit
   # def edit
@@ -20,9 +22,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
+  # rubocop:disable Lint/UselessMethodDefinition
   def update
     super
   end
+  # rubocop:enable Lint/UselessMethodDefinition
 
   # DELETE /resource
   # def destroy

@@ -12,7 +12,7 @@ class Order < ApplicationRecord
     user.cart.product_orders.each do |product_order|
       if product_order.quantity > product_order.product.quantity
         errors.add(:availability, I18n.t('errors.availability'))
-        return
+        break
       end
     end
   end
