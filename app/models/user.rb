@@ -9,12 +9,20 @@ class User < ApplicationRecord
   validate :password_has_uppercase
   validate :password_has_lowercase
   validate :password_has_special
-  validates_presence_of :first_name, :last_name
+  validate :credit_card_has_proper_format
+
+  validates_presence_of :first_name, :last_name, :email
   validates_length_of :email, maximum: 250
   validates_length_of :first_name, maximum: 250
   validates_length_of :last_name, maximum: 250
 
   after_create_commit :create_cart
+
+  def ability
+    @ability ||= Ability.new(self)
+  end
+
+  private
 
   def password_has_uppercase
     return if password.blank? || password.match(/[A-Z]/)
@@ -34,11 +42,11 @@ class User < ApplicationRecord
     errors.add(:password, I18n.t('devise.errors.password.password_has_special'))
   end
 
-  def ability
-    @ability ||= Ability.new(self)
-  end
+  def credit_card_has_proper_format
+    return if credit_card.blank? || credit_card.tr(",", "").tr("-", "").match(/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)
 
-  private
+    errors.add(:credit_card, I18n.t('devise.errors.credit_card.credit_card_has_proper_format'))
+  end
 
   def create_cart
     Cart.create(user_id: id)
