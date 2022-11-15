@@ -7,6 +7,7 @@ class OrdersService
 
   def create
     return if @user.nil?
+
     @order = Order.new(user_id: @user.id)
     @order.save
   end

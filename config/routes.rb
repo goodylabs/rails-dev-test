@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'products/create'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   devise_for :users, controllers: {
     passwords: 'users/passwords',
     registrations: 'users/registrations',
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [] do
-    resources :carts, only: [:show]  do
+    resources :carts, only: [:show] do
       resources :product_orders, only: [:destroy]
     end
     resources :orders, only: [:create, :index] do
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   resources :products do
     resources :product_orders, only: [:create]
-  end 
+  end
 
   authenticated :user do
     root to: redirect('/products'), as: :authenticated_user_root

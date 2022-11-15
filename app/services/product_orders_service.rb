@@ -15,9 +15,10 @@ class ProductOrdersService
       new_quantity = existing_product_order.quantity + @product_order_params[:quantity].to_i
       @product_order = existing_product_order
       return true if @product_order.update(quantity: new_quantity)
+
       old_quantity = existing_product_order.quantity - @product_order_params[:quantity].to_i
       @product_order.quantity = old_quantity
-      return false
+      false
     else
       @product_order.save
     end

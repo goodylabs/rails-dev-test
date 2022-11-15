@@ -5,8 +5,6 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
   end
 
-  
-
   private
 
   def cart_params
