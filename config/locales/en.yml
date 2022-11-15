@@ -40,7 +40,7 @@ en:
       add_missing_data: Add missing data
       checkout: Checkout
       no_orders: Your cart is empty
-      no_credit_card_or_address: No credit cart or address
+      no_credit_card_or_address: No credit cart, email or address
       products_in_cart: "The number of products in cart: %{number}"
 
   product_orders:
@@ -85,3 +85,4 @@ en:
       edit_profile: Edit profile
       orders: Orders
       cart: Cart
+      products: Products

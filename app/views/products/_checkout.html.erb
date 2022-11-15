@@ -1,4 +1,4 @@
-<% if current_user.credit_card.nil? || current_user.address.nil? %>
+<% if cannot? :create, Order %>
   <%= t('.no_credit_card_or_address') %>
   <%= button_to t('.add_missing_data'), edit_user_registration_path, :method => :get, :form_class => "add-missing-data" %>
 <% elsif current_user&.cart&.product_orders.any? %>

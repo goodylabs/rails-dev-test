@@ -14,7 +14,7 @@ class Ability
     can [:destroy], ProductOrder, id: product_order_ids
 
     order_ids = Order.where(user_id: user.id).pluck(:id)
-    can [:create], Order
+    can [:create], Order if user.credit_card.present? && user.address.present? && user.email.present?
     can [:index], Order, id: order_ids
   end
 end
