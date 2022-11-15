@@ -75,6 +75,7 @@ en:
     quantity:
       check_max_quantity: 'Availible only %{quantity} pieces.'
       check_min_quantity: Provide a valid quantity.
+      affiliation: Product order needs to be assigned to order or cart.
     availability: Some of products in your cart are no longer available in required numbers.
   
   layouts:
