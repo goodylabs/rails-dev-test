@@ -6,5 +6,6 @@ FactoryBot.define do
     first_name { Faker::Name.female_first_name }
     last_name { Faker::Name.last_name }
     password { 'Password!' }
+    credit_card { Faker::Finance.credit_card(:mastercard, :visa) }
   end
 end
