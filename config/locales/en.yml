@@ -35,6 +35,12 @@ en:
   products:
     product_tile:
       currency: €
+      add_to_cart: Add to cart
+
+  product_orders:
+    create:
+      add_to_cart: Product added to cart
+      alert: Oops, something went wrong
 
   carts:
     show:
@@ -44,8 +50,16 @@ en:
     product_order_tile:
       currency: €
       delete: Delete
+      name: Name
+      quantity: Quantity
+      price_per_unit: Price per unit
+      total_price: Total price
     product_orders_list:
       currency: €
+  
+  errors:
+    quantity:
+      check_max_quantity: 'Availible only %{quantity} pieces.'
   
   layouts:
     application:
