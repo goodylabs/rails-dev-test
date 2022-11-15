@@ -1,23 +1,7 @@
 <div class="page-container">
-  <h2><%= t(".cart") %></h2>
-  <div class=cart-container>
-    <% if @cart.product_orders.any? %>
-      <% @cart.product_orders.each do |product_order| %>
-        <div class="cart-row">
-          <%= render partial: 'carts/product_order_tile', locals: { product_order: product_order } %>
-        </div>
-      <% end %>
-      <div class="cart-row">
-        <div class="summary-row">
-          <label><%= t('.total_price') %></label>
-          <%= "#{t(".currency")} #{@cart.total_price}" %>
-        </div>
-      </div>
-    <% else %>
-      <div class="no-records">
-        <%= t(".no-record") %>
-      </div>
-    <% end %>
+  <h1><%= t(".cart") %></h1>
+  <div id="cart-form" class="cart-container">
+    <%= render partial: 'carts/product_orders_list' %>
   </div>
 
   <div class="back-button">

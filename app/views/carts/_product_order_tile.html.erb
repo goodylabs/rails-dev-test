@@ -1,4 +1,7 @@
 <div class="product-container">
+  <div class="product-counter">
+    <%= index %>
+  </div>
   <div class="product-name">
     <label><%= t('.name') %></label>
     <%= product_order.product.name %>
@@ -14,5 +17,10 @@
   <div class="total-price">
     <label><%= t('.total_price') %></label>
     <%= "#{t(".currency")} #{product_order.product.price * product_order.quantity}" %>
+  </div>
+  <div class="delete-product">
+    <%= link_to user_cart_product_order_path(user_id: current_user.id, cart_id: product_order.cart ,id: product_order.id), method: :delete, class: 'delete-product', data: {confirm: 'Are you sure?'}, remote: true do %>
+      <%= t(".delete") %>
+    <% end %>
   </div>
 </div>

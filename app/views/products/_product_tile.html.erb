@@ -1,11 +1,16 @@
 <div class="product-container">
-  <div class="product-name">
-    <%= product.name %>
-  </div>
-  <div class="product-description">
-    <%= product.description %>
+  <div class="dropdown show">
+    <div class="product-name">
+      <%= product.name %>
+    </div>
+    <div style="padding: 15px;" class="dropdown-menu" aria-labelledby="productDescriptionDropdownMenu">
+      <%= product.description %>
+    </div>
   </div>
   <div class="product-price">
     <%= "#{t(".currency")} #{product.price}" %>
+  </div>
+  <div class="add-to-cart">
+    <%= t(".add_to_cart") %>
   </div>
 </div>

@@ -12,15 +12,15 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [] do
-    resources :carts do
-      resources :product_orders, only: []
+    resources :carts, only: [:show]  do
+      resources :product_orders, only: [:destroy]
     end
     resources :orders do
-      resources :product_orders, only: []
+      resources :product_orders, only: [:destroy]
     end
   end
   resources :products do
-    resources :product_orders, only: []
+    resources :product_orders, only: [:destroy]
   end 
 
   authenticated :user do

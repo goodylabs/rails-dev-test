@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :product_orders
+  has_many :product_orders, dependent: :destroy
 
   enum category: {
     arabica: 0,

@@ -1,0 +1,17 @@
+<% if @cart.product_orders.any? %>
+  <% @cart.product_orders.order(:created_at).each.with_index(1) do |product_order, index| %>
+    <div class="cart-row">
+      <%= render partial: 'carts/product_order_tile', locals: { product_order: product_order, index: index } %>
+    </div>
+  <% end %>
+  <div class="cart-row">
+    <div class="summary-row">
+      <label><%= t('.total_price') %></label>
+      <%= "#{t(".currency")} #{@cart.total_price}" %>
+    </div>
+  </div>
+<% else %>
+  <div class="no-records">
+    <%= t(".no-record") %>
+  </div>
+<% end %>
