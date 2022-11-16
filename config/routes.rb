@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'products/new'
-  get 'products/create'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -19,7 +17,7 @@ Rails.application.routes.draw do
       resources :product_orders, only: []
     end
   end
-  resources :products do
+  resources :products, only: [:index] do
     resources :product_orders, only: [:create]
   end
 
