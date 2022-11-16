@@ -1,45 +1,108 @@
-![Goodylabs_logo](https://user-images.githubusercontent.com/1035770/151546790-59ffd0b3-3caa-4ecd-918b-cecfcfdfcccb.png)
+# README
 
-# Welcome
+## RAILS-DEV-TEST (as explained by Weronika Piotrowska)
 
-👋 Hey there! If you got here, it means you've decided to accept our little test assignment. That's great! We're really happy to see you here. We hope you'll find this  easy and will 🚀 blaze through it in minutes 😀 If you do we'd love to welcome you to our team of true motherhackers.
+### "User and AdminUser" vs "multirole User"
+Initial note: Desired `Customer` model was named `User` as a result of eager excitment, to which the author of this PR admits herself. Renaming a table and couple dozens model calls and symbols was an open option, but such changed at the ending stage of development tend to invite chaos into the code. And so, the `User` remained.
 
-Good Luck!
+Initial problem taken under consideration was whether to implement two separate user models (e.g. `User` and `AdminUser`) or a single bigger one with a role enum. First approach was chosen, as it allowed for clear division in authentication and autorization. The regular `User` is now kept under strict autrorization all the time, except for interactions with Devise controllers. `AdminUser` is kept under loose autorization and as such, once logged in, has almost unrestricted abilities.
 
-# Simple RoR test for candidates
+### ActiveAdmin vs RailsAdmin
+`ActiveAdmin` was chosen because of brief experience the author had with this gem. `RailsAdmin` seems to be a very decent alternative, but the easy setup and simplisity of `ActiveAdmin` turned out to be preferable, when setting up admin user for such small app.
 
-This repository holds a pretty basic Rails 5 app. A candidate applying to goodylabs is asked to fork this repo and submit a PR once they're done with the assignment.
+### Stripe
 
-# Getting started
+Usage of stripe was considered to properly simulate an actual check out. This however seemed to be a little bit to excesive. The author is aware of `Stripe`, however never had an opportunity to integrate it from the scratch. Given more time, the author would gladly experiment with Stripe and the possibilities it brings. For now, the simplest simulation of checkout is prepared.
 
-1. `bundle install`
-2. `rake db:create`
-3. `rails s`
+### Cart UI solutions
 
-# The goal
+`shopping-cart-rails`/ `Waroong!` was briefly considered as an interesting approach to the task (work smarter not harder). This unfortunetelly could not happen, as the solution was not properly tested on `MySQL` and could end up just a giant waste of time.
 
-The goal of the exercise is to create a checkout system that meets the requirements listed below:
+### MySQL vs PostrgreSQL
 
-1. Products can be added to the Cart
-2. Products can be removed from the Cart
-3. A Cart can be checked out - a total price is calculated
-4. A Customer’s Email, Address and Credit Card details are required to check out
-5. After checking out, the Customer will have an Order that contains all the cart items
-6. Products can be managed from ActiveAdmin (https://github.com/activeadmin/activeadmin) or RailsAdmin (https://github.com/sferik/rails_admin)
-7. Products should have at least a name and a price
-8. Products can be bought more than once
-    
-# Deliverables
-- Create a database that can support the requirements listed above 
-- Create pages to accommodate the required functionality
-- Validation of intended functionality
-- Brief summary of your approach, assumptions, caveats and notes (in a form of a README.md)
-- Instructions on how to run the project
-- Submission should be a GitHub repository
-- RSpec tests 
- 
- Note: 
-- No attention will be paid to the look and feel of this task. Pages can be plain HTML.
+The author feels much safer with more fammiliar `PostgreSQL`, but didn't decide to swap to it. Database management system change is not a great deal of work, however no real needs other than personal preferences could be a decisive factor here.
+
+### Rspec
+
+What a horrible ride.
+
+### Rubocop
+
+The `Rubocop` gem was used here to keep the code relatively nice and clean. The author has one prefered configuration for the gem and uses it whenever possible and whenever allowed.
+
+### Services
+
+Usage of so many services in such small application could be considered excessive. Some of them barely contain any code. This being said, the author strongly believes that controllers should be as slim as possible, with as much fonctionalities as possible moved to services and helpers. As a matter of fact, the controller should work more like presenter - working directly only on whatever needs to be displayed, while delegating all the other work to services, workers, helpers and so on.
+
+### Simple form and Sass
+
+Both `simple form` and `scss` files are preferable solutions. At this point they are so familiar, the author simply feels way more safer with them, tahn with the generic forms and `css` files.
+
+### Final thoughts
+
+Could this application be prepared better? Of course it could. Certain mix of time wasted on backing out from dead ends of poor development choices, sticking to preplanned database structure plan and some personal issues greatly diminished what this app is now, as compared to what it could have been. Many problems were resolved successfully, many still remain. Functionally speaking, the app handles much of desired functionalities, while simulating the remaining ones. Working on it was a great deal of fun. Also great deal of tears and sweat. As a personal sidenote, it's the best form of recruitment process I participated in. It was generally nice to partake, and I genuinely believe such tasks really do verify some things and allow to present certain results in stress-free environment. :)
 
 
-----------
+## Prerequisites
+
+- Ruby version: 2.7.4
+- MySQL > 8.0 (including user with SUPERADMIN rights)
+- Yarn > 1.22.19
+- Node.js > 14.14.0
+
+## Configuration
+
+- Install the required gems:
+
+```
+$ bundle install
+```
+
+- Install yarn packages:
+
+```
+$ yarn install --check-files
+```
+
+- Set the `DB_DEV_USERNAME` and `DB_DEV_PASSWORD` environmental variables in `.env` file (in app main directory) as your
+MySQL user credentials.
+
+- Setup the database:
+
+```
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+
+- Start the server:
+```
+$ rails s
+```
+
+## Environment variables
+
+* DB_DEV_USERNAME - MySQL user's name for development and test environments.
+* DB_DEV_PASSWORD - MySQL user's password for development and test environments.
+
+In order to set the environment variables for the development environment, you should
+create a file `.env` in the main project directory (it should be listed in `.gitignore`)
+and set them there like this:
+
+```
+ENV_VARIABLE_NAME=value
+```
+
+## Credentials
+
+### User
+```
+EMAIL: user1@example.com
+PASSWORD: Password!
+```
+
+### Admin
+```
+EMAIL: admin@example.com
+PASSWORD: Password!
+```
