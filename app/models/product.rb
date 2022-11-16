@@ -27,6 +27,8 @@ class Product < ApplicationRecord
   private
 
   def check_min_quantity
+    return errors.add(:quantity, I18n.t('errors.quantity.check_min_quantity', quantity: quantity)) if quantity.nil?
+
     return if quantity >= 0
 
     errors.add(:quantity, I18n.t('errors.quantity.check_min_quantity', quantity: quantity))

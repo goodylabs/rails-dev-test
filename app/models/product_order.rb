@@ -18,13 +18,13 @@ class ProductOrder < ApplicationRecord
   end
 
   def check_max_quantity
-    return if quantity <= product.quantity
+    return if product.blank? || quantity.blank? || quantity <= product.quantity
 
     errors.add(:quantity, I18n.t('errors.quantity.check_max_quantity', quantity: product.quantity))
   end
 
   def check_min_quantity
-    return if quantity > 0
+    return if quantity.blank? || quantity > 0
 
     errors.add(:quantity, I18n.t('errors.quantity.check_min_quantity'))
   end

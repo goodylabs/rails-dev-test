@@ -9,6 +9,7 @@ class Order < ApplicationRecord
   private
 
   def check_products_availability
+    return if user.blank?
     user.cart.product_orders.each do |product_order|
       if product_order.quantity > product_order.product.quantity
         errors.add(:availability, I18n.t('errors.availability'))

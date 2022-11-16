@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is invalid with invalid credit card format' do
-    example_user.email = '1212-2323-absd-3434-2332'
+    example_user.credit_card = '1212-2323-absd-3434-2332'
     expect(example_user).not_to be_valid
   end
 
