@@ -30,6 +30,6 @@ class OrdersController < ApplicationController
   private
   
   def order_params
-    params.require(:order).permit(:credit_card_number, :email, :address, :pay_method)
+    params.require(:order).permit(:credit_card_number, :email, :address)
   end
 end
