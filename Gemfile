@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.7.4"
 
+gem 'activeadmin'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem "loofah", ">= 2.2.3"
