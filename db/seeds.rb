@@ -8,4 +8,3 @@ product5 = Product.create({:name=>"cheese", :price => 3.20})
 
 # CART
 Cart.destroy_all
-puts "\nTotal cart count: #{Cart.all.count}"
