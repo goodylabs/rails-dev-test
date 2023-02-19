@@ -6,6 +6,9 @@
 4. `rake db:seed`
 5. `rails s`
 
+# Run tests
+`bundle exec rspec`
+
 # My notes and assumptions
 1. There wasn't note about user in requirements so the application is created userless, it could be easily changed by adding devise, pundit and stuff like that.
 2. I assumed that the checkout system should be build from the ground and we shouldn't use stripe.
