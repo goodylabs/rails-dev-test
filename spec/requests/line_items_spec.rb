@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "LineItems", type: :request do
   let(:product) { FactoryBot.create(:product) }
@@ -15,9 +15,9 @@ RSpec.describe "LineItems", type: :request do
 
     context "when the product is not in the cart" do
       it "creates a new line item" do
-        expect {
+        expect do
           post line_items_path, params: { product_id: FactoryBot.create(:product).id }
-        }.to change(LineItem, :count).by(1)
+        end.to change(LineItem, :count).by(1)
       end
     end
 
@@ -29,9 +29,9 @@ RSpec.describe "LineItems", type: :request do
 
   describe "DELETE #destroy" do
     it "deletes the line item" do
-      expect {
+      expect do
         delete line_item_path(line_item)
-      }.to change(LineItem, :count).by(-1)
+      end.to change(LineItem, :count).by(-1)
     end
 
     it "redirects to the cart page" do

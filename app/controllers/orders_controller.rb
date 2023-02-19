@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
       @order.line_items << item
       item.cart_id = nil
     end
-    
+
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
@@ -26,9 +26,9 @@ class OrdersController < ApplicationController
       render :new
     end
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:credit_card_number, :email, :address)
   end

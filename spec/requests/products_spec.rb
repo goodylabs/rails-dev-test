@@ -1,20 +1,19 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "/products", type: :request do
-  
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     {
       name: "some name",
       price: 120,
     }
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       name: "",
       price: -120,
     }
-  }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -50,9 +49,9 @@ RSpec.describe "/products", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new Product" do
-        expect {
+        expect do
           post products_url, params: { product: valid_attributes }
-        }.to change(Product, :count).by(1)
+        end.to change(Product, :count).by(1)
       end
 
       it "redirects to the created product" do
@@ -63,9 +62,9 @@ RSpec.describe "/products", type: :request do
 
     context "with invalid parameters" do
       it "does not create a new Product" do
-        expect {
+        expect do
           post products_url, params: { product: invalid_attributes }
-        }.to change(Product, :count).by(0)
+        end.to change(Product, :count).by(0)
       end
 
       it "renders a new template" do
@@ -77,12 +76,12 @@ RSpec.describe "/products", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         {
           name: "nazwa",
           price: 10,
         }
-      }
+      end
 
       it "updates the requested product" do
         product = Product.create! valid_attributes
@@ -112,9 +111,9 @@ RSpec.describe "/products", type: :request do
   describe "DELETE /destroy" do
     it "destroys the requested product" do
       product = Product.create! valid_attributes
-      expect {
+      expect do
         delete product_url(product)
-      }.to change(Product, :count).by(-1)
+      end.to change(Product, :count).by(-1)
     end
 
     it "redirects to the products list" do
