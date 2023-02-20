@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  ActiveAdmin.routes(self)
+  root "products#index"
+
+  resources :carts, only: [:show, :destroy]
+  resources :line_items, only: [:create, :show, :destroy] do
+    member do
+      post :add_quantity
+      post :reduce_quantity
+    end
+  end
+
+  resources :products
+  resources :orders, only: [:index, :show, :new, :create]
 end
